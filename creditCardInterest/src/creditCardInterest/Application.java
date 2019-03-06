@@ -91,9 +91,46 @@ public class Application {
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Begin Test Case 3
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		// Write this code tomorrow
 		
+		Person person1 = new Person();
+		ArrayList<Wallet> person1Wallets = new ArrayList<Wallet>();
+		Wallet person1Wallet = new Wallet();
+		ArrayList<Card> person1Cards = new ArrayList<Card>();
+		Card person1MC = new Mastercard();
+		person1MC.setBalance(100.00d);
+		Card person1Visa = new Visa();
+		person1Visa.setBalance(100.00d);
+		person1Cards.add(person1MC);
+		person1Cards.add(person1Visa);
+		person1Wallet.setCards(person1Cards);
+		person1Wallets.add(person1Wallet);
+		person1.setWallets(person1Wallets);
+		
+		Double person1Interest = person1MC.calculateInterest(person1MC.getBalance()) + person1Visa.calculateInterest(person1MC.getBalance());
+		
+		Person person2 = new Person();
+		ArrayList<Wallet> person2Wallets = new ArrayList<Wallet>();
+		Wallet person2Wallet = new Wallet();
+		ArrayList<Card> person2Cards = new ArrayList<Card>();
+		Card person2MC = new Mastercard();
+		person2MC.setBalance(100.00d);
+		Card person2Visa = new Visa();
+		person2Visa.setBalance(100.00d);
+		person2Cards.add(person2MC);
+		person2Cards.add(person2Visa);
+		person2Wallet.setCards(person2Cards);
+		person2Wallets.add(person2Wallet);
+		person2.setWallets(person2Wallets);
+		
+		Double person2Interest = person2MC.calculateInterest(person2MC.getBalance()) + person2Visa.calculateInterest(person2MC.getBalance());
+		
+		System.out.println("\n\n\nTest case three:\nPerson one has one wallet with a Visa and Mastercard in it. Both cards have a balance of $100.00.");
+		System.out.println("\nPerson one will have to pay a total of: " + person1Interest + " in total interest (the interest from both cards added together)");
+		System.out.println("\nSince person one only has one wallet, they will pay a total of: " + person1Interest + " in interest for wallet 1");
+		
+		System.out.println("\nPerson two has one wallet with a Visa and Mastercard in it. Both cards have a balance of $100.00.");
+		System.out.println("\nPerson two will have to pay a total of: " + person2Interest + " in total interest (the interest from both cards added together)");
+		System.out.println("\nSince person one only has one wallet, they will pay a total of: " + person2Interest + " in interest for wallet one");
 	}
 
 }
